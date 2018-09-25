@@ -1,4 +1,10 @@
 <h1>{{title}}</h1>
-<app-heroes></app-heroes>
-<hr/>
-<app-products></app-products>
+
+<nav>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/dashboard">Dashboard</a>
+</nav>
+<router-outlet></router-outlet>
+<br />
+<hr />
+<app-messages></app-messages>

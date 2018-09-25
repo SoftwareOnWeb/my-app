@@ -1,11 +1,25 @@
-<app-product-detail [product]="selectedProduct"></app-product-detail>
 <ul class="products">
-<li  *ngFor="let product of products" (click)="onSelect(product)"
-[class.selected]="product === selectedProduct"
->
-<span>id: </span>{{product.id}}<br/>
-<span>name: </span>{{product.name}}<br/>
-<span>Details: </span>{{product.details}}<br/>
-<span>price: </span>{{product.price}}
-</li>
+    <li *ngFor="let product of products">
+        <a routerLink='/detail/{{product.id}}'>
+            <span>id: </span>{{product.id}}<br />
+            <span>name: </span>{{product.name}}<br />
+        </a>
+        <button (click)="delete(product);">Delete</button>
+    </li>
 </ul>
+
+<div>
+    <label>Product name:
+        <input #productName />
+    </label>
+    <label>Product detail:
+        <input #productDetail />
+    </label>
+    <label>Product price:
+        <input #productPrice />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(productName.value,productDetail.value,productPrice.value); productName.value=''">
+        add
+    </button>
+</div>

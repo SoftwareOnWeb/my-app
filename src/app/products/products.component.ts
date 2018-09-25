@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../Product';
-import {PRODUCTS} from '../mock-product';
+import { PRODUCTS } from '../mock-product';
 import { ProductService } from '../product.service';
 @Component({
   selector: 'app-products',
@@ -9,17 +9,37 @@ import { ProductService } from '../product.service';
 })
 export class ProductsComponent implements OnInit {
 
-products: Product[];
-selectedProduct: Product;
+  products: Product[];
   constructor(private productService: ProductService) { }
   getProducts(): void {
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe(prds => this.products = prds);
+    // this.products = this.productService.getProducts();
   }
   ngOnInit() {
     this.getProducts();
   }
-  onSelect(product: Product): void {
-    this.selectedProduct = product;
+  add(name: string, details: string, price: number): void {
+    name = name.trim();
+    if (!name) { return; }
+    /*let prd: Product;
+    prd.name = name;
+    prd.details = details;
+    prd.price = price;
+*/
+    this.productService.addProduct({ name, details, price } as Product)
+      .subscribe(product => {
+        this.products.push(product);
+      });
   }
 
+  delete(prd: Product): void {
+    /*let prd: Product;
+    prd.name = name;
+    prd.details = details;
+    prd.price = price;
+*/
+    this.productService.deleteProduct(prd as Product)
+      .subscribe();
+      this.products = this.products.filter(p => p !== prd);
+  }
 }

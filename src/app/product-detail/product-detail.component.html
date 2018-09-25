@@ -1,11 +1,16 @@
+<button (click)='goBack()'>Back</button>
 <div *ngIf="product">
- 
+
   <h2>{{product.name | uppercase}} Details</h2>
   <div><span>id: </span>{{product.id}}</div>
+  <div><span>name: </span>{{product.name}}</div>
+  <div><span>details: </span>{{product.details}}</div>
+  <div><span>price: </span>{{product.price}}</div>
+
   <div>
     <label>name:
-      <input [(ngModel)]="product.name" placeholder="name">
+      <input [(ngModel)]="product.name" placeholder="name" />
     </label>
   </div>
- 
+  <button (click)="save()">save</button>
 </div>
