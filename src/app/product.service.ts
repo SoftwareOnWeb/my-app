@@ -12,8 +12,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProductService {
-  // private productsUrl = 'api/products';  // URL to web api
-  private productsUrl = 'http://localhost:60240/api/Products';
+   private productsUrl = 'api/products';  // URL to web api
+  //private productsUrl = 'http://localhost:60240/api/Products';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }

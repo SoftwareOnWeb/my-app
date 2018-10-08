@@ -11,6 +11,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { NameEditorComponent } from './name-editor/name-editor.component';
+import { ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,20 +20,21 @@ import { InMemoryDataService } from './in-memory-data.service';
     ProductsComponent,
     ProductDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    NameEditorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-  /*  HttpClientInMemoryWebApiModule.forRoot(
+    HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
-    */
   ],
   providers: [],
   bootstrap: [AppComponent]

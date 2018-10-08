@@ -1,0 +1,16 @@
+<label>
+  Name:
+  <input type="text" [formControl]="name">
+</label>
+
+{{ name.value }}
+
+<br/>
+Note: For a more 
+<input type="text" [(ngModel)]="name1">
+{{name1}}
+
+
+<button  id="id1" (click)="updateName()">
+  Update Name
+</button>
