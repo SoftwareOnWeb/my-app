@@ -13,6 +13,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ReactiveFormsModule} from '@angular/forms';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { ReactiveFormsModule} from '@angular/forms';
     ProductDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    NameEditorComponent
+    NameEditorComponent,
+    ProfileEditorComponent
   ],
   imports: [
     BrowserModule,
